@@ -140,7 +140,8 @@ class FireGento_Logger_Model_Graylog2 extends Zend_Log_Writer_Abstract
 
             $this->_publisher->publish($msg);
         } catch (Exception $e) {
-            throw new Zend_Log_Exception($e->getMessage(), $e->getCode());
+            // silently catch exception
+            //throw new Zend_Log_Exception($e->getMessage(), $e->getCode());
         }
     }
 
