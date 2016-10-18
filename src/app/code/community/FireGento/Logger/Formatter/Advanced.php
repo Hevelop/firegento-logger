@@ -27,6 +27,10 @@
  */
 class FireGento_Logger_Formatter_Advanced extends Zend_Log_Formatter_Simple
 {
+    /**
+     * Default format
+     */
+    const DEFAULT_FORMAT = '%timestamp% %priorityName% (%priority%): %message%';
 
     /**
      * Class constructor
@@ -53,7 +57,7 @@ class FireGento_Logger_Formatter_Advanced extends Zend_Log_Formatter_Simple
      * @param bool $enableBacktrace
      * @return string             formatted line to write to the log
      */
-    public function format($event, $enableBacktrace = FALSE)
+    public function format($event, $enableBacktrace = false)
     {
         $helper = Mage::helper('firegento_logger'); /* @var $helper FireGento_Logger_Helper_Data */
         $helper->addEventMetadata($event, '-', $enableBacktrace);
